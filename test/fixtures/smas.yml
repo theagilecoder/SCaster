@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  item_code: MyString
+  description: MyString
+  sma1: 9.99
+  sma2: 9.99
+  sma3: 9.99
+  sma4: 9.99
+  sma5: 9.99
+  sma6: 9.99
+  sma7: 9.99
+  sma8: 9.99
+  sma9: 9.99
+  sma10: 9.99
+  sma11: 9.99
+  sma12: 9.99
+
+two:
+  user_id: 
+  item_code: MyString
+  description: MyString
+  sma1: 9.99
+  sma2: 9.99
+  sma3: 9.99
+  sma4: 9.99
+  sma5: 9.99
+  sma6: 9.99
+  sma7: 9.99
+  sma8: 9.99
+  sma9: 9.99
+  sma10: 9.99
+  sma11: 9.99
+  sma12: 9.99

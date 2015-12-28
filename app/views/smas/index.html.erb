@@ -1,0 +1,31 @@
+
+
+<div class="row" style="margin-top: 90px">
+  
+  <%= link_to "Create New +", new_sma_path, :class => "btn btn-success" %>
+  
+  <div class="col-md-10 col-md-offset-1">
+    <h3>Items</h3>
+    <% if 2+2==4 %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Item Code</th>
+            <th>Description</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <%= render @smas %>
+        </tbody>
+      </table>
+      <%= will_paginate @smas %>
+    <% else %>
+      <h5>No items found in inventory. Please create entry from Home page.</h5>
+    <% end %>
+  </div>
+</div>

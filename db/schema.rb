@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114091742) do
+ActiveRecord::Schema.define(version: 20151228092610) do
+
+  create_table "smas", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "item_code"
+    t.string   "description"
+    t.decimal  "sma1"
+    t.decimal  "sma2"
+    t.decimal  "sma3"
+    t.decimal  "sma4"
+    t.decimal  "sma5"
+    t.decimal  "sma6"
+    t.decimal  "sma7"
+    t.decimal  "sma8"
+    t.decimal  "sma9"
+    t.decimal  "sma10"
+    t.decimal  "sma11"
+    t.decimal  "sma12"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "smas", ["user_id"], name: "index_smas_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

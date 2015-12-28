@@ -1,0 +1,12 @@
+<tr>
+  <td></td>
+  <td><%= sma.item_code %></td>
+  <td><%= sma.description %></td>
+  <td><%= link_to "Dashboard", new_sma_path %></td>
+  <td><%= link_to "Edit" %></td>
+  <td>
+    <% if current_user?(sma.user) %>
+      <%= link_to "Delete Item", sma, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>  
+  </td>
+<tr>
