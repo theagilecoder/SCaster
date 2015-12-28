@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -14,20 +15,21 @@
     <div class="navbar navbar-fixed-top navbar-default">
       <div class="container">
         
-        <a class="navbar-brand" href="/"><%= image_tag("logo.png", alt: "My Logo") %></a>
-        <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Spage2", spage2_path %></li>
-        </ul><!-- end nav left -->
+        <a class="navbar-brand" href="/">SCaster</a>
+        <% if logged_in? %>
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Home", root_path %></li>
+          </ul><!-- end nav left -->
+        <% else %>
+        <% end %>
                    
         <ul class="nav navbar-nav pull-right">
         <% if logged_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Account <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> My Account <b class="caret"></b></a>
             <ul class="dropdown-menu">
 								<li><a><small> Logged in as</small><br><strong><%= current_user.name %></strong></a></li>
-								<li class="divider"></li>
-								<li><%= link_to '<i class="glyphicon glyphicon-wrench"></i> Profile'.html_safe, current_user %></li>									
+								<li class="divider"></li>									
 								<li><%= link_to '<i class="glyphicon glyphicon-refresh"></i> Settings'.html_safe, edit_user_path(current_user) %></li>									
 								<li><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Billing</a></li>									
 								<li class="divider"></li>									
@@ -35,7 +37,7 @@
 						</ul>
           </li>  
         <% else %>
-          <li class="active"><%= link_to '<i class="glyphicon glyphicon-user"></i> Login'.html_safe, login_path %></li>
+          <li class="active"><%= link_to "Login", login_path %></li>
         <% end %>
         </ul><!-- end nav right -->
                    
