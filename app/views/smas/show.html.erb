@@ -1,0 +1,100 @@
+ <!-- SMA Show page
+ =======================-->
+ 
+<h3 style="margin-top: 90px">Item Attributes</h3>
+<hr style="margin-top: 0">
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="input-group">
+      <span class="input-group-addon" ><span class="glyphicon glyphicon-asterisk"></span></span>
+      <input class="form-control" type="text" value="Item Code : <%= @sma.item_code %>" readonly/>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="input-group">
+      <span class="input-group-addon" ><span class="glyphicon glyphicon-list-alt"></span></span>
+      <input class="form-control" type="text" value="Item Location : <%= @sma.description %>" readonly/>
+    </div>
+  </div>
+</div>
+
+<!-- HighCharts Section
+============================-->  
+    
+<h3 style="margin-top: 50px">Simple Moving Average Analysis</h3>
+<hr style="margin-top: 0"> 
+
+<div class="row">
+  <div id="chart1" style="width:100%; height:400px;"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  
+  $(function () {
+    $('#chart1').highcharts({
+        chart: {
+            type: 'area',
+            spacingBottom: 30
+        },
+        title: {
+            text: 'Actuals vs Forecasts'
+        },
+        subtitle: {
+            floating: true,
+            align: 'right',
+            verticalAlign: 'bottom',
+            y: 15
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 75,
+            y: 0,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        xAxis: {
+            categories: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6', 'Week7', 'Week8', 'Week9', 'Week10', 'Week11', 'Week12']
+        },
+        yAxis: {
+            title: {
+                text: 'Measured in lbs'
+            },
+            labels: {
+                formatter: function () {
+                    return this.value;
+                }
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + '</b><br/>' +
+                    this.x + ': ' + this.y;
+            }
+        },
+        plotOptions: {
+            area: {
+                fillOpacity: 0.5
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Actuals',
+            data: [<%= @sma.sma1 %>, <%= @sma.sma2 %>, <%= @sma.sma3 %>, <%= @sma.sma4 %>, <%= @sma.sma5 %>, <%= @sma.sma6 %>, <%= @sma.sma7 %>, <%= @sma.sma8 %>, <%= @sma.sma9 %>, <%= @sma.sma10 %>, <%= @sma.sma11 %>, <%= @sma.sma12 %>],
+            color: '#90ed7d'
+        }, {
+            name: '3 month moving Forecast',
+            data: [null, null, null, <%= ((@sma.sma1 + @sma.sma2 + @sma.sma3)/3.0).round(2) %>, <%= ((@sma.sma2 + @sma.sma3 + @sma.sma4)/3.0).round(2) %>, <%= ((@sma.sma3 + @sma.sma4 + @sma.sma5)/3.0).round(2) %>, <%= ((@sma.sma4 + @sma.sma5 + @sma.sma6)/3.0).round(2) %>, <%= ((@sma.sma5 + @sma.sma6 + @sma.sma7)/3.0).round(2) %>, <%= ((@sma.sma6 + @sma.sma7 + @sma.sma8)/3.0).round(2) %>, <%= ((@sma.sma7 + @sma.sma8 + @sma.sma9)/3.0).round(2) %>, <%= ((@sma.sma8 + @sma.sma9 + @sma.sma10)/3.0).round(2) %>, <%= ((@sma.sma9 + @sma.sma10 + @sma.sma11)/3.0).round(2) %>]
+        }, {
+            name: '6 month moving Forecast',
+            data: [null, null, null, null, null, null, <%= ((@sma.sma1 + @sma.sma2 + @sma.sma3 + @sma.sma4 + @sma.sma5 + @sma.sma6)/6.0).round(2) %>, <%= (( @sma.sma2 + @sma.sma3 + @sma.sma4 + @sma.sma5 + @sma.sma6 + @sma.sma7)/6.0).round(2) %>, <%= (( @sma.sma3 + @sma.sma4 + @sma.sma5 + @sma.sma6 + @sma.sma7 + @sma.sma8)/6.0).round(2) %>, <%= (( @sma.sma4 + @sma.sma5 + @sma.sma6 + @sma.sma7 + @sma.sma8 + @sma.sma9)/6.0).round(2) %>, <%= (( @sma.sma5 + @sma.sma6 + @sma.sma7 + @sma.sma8 + @sma.sma9 + @sma.sma10)/6.0).round(2) %>, <%= (( @sma.sma6 + @sma.sma7 + @sma.sma8 + @sma.sma9 + @sma.sma10 + @sma.sma11)/6.0).round(2) %>]
+        }]
+    });
+});
+  
+</script>

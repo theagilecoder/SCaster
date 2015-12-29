@@ -6,7 +6,10 @@ class SmasController < ApplicationController
   end  
   
   def show
-    
+    @sma = Sma.find(params[:id])
+    if @sma.user_id != current_user.id #If a user is trying to view the show page of an item that doesn't belong to him, take him to Home page
+      render 'static_pages/spage1'
+    end
   end  
   
   def new
@@ -17,7 +20,7 @@ class SmasController < ApplicationController
     @sma = current_user.smas.build(sma_params)
     if @sma.save
       flash[:success] = "Item created Successfully."
-      redirect_to new_sma_path
+      redirect_to smas_path
     else
       render 'static_pages/spage2'
     end
@@ -32,7 +35,9 @@ class SmasController < ApplicationController
   end  
   
   def destroy
-    
+    Sma.find(params[:id]).destroy
+    flash[:success] = "Item deleted"
+    redirect_to smas_path
   end  
   
   private
