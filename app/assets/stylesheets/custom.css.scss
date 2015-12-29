@@ -307,12 +307,11 @@ body {
   color: #fff;
   text-align: center;
   background-color: #159957;
-  height: 100vh;
   background-image: linear-gradient(120deg, #155799, #159957); }
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 20rem 6rem; } }
+    padding: 15.5rem 6rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
@@ -394,4 +393,33 @@ body {
     .btn + .btn {
       margin-top: 1rem;
       margin-left: 0; } }  
+      
+
+/* --------------------------------------
+   Typing Animation on Landing Page
+   -------------------------------------- */
+
+.element { font-size: 25px; }
+
+.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}      
       

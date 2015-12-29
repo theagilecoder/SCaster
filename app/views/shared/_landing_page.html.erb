@@ -6,6 +6,26 @@
     <a href="/signup" class="btn">SignUp</a>
     <a href="/login" class="btn">Login</a>
     <a href="" class="btn">Demo</a>
+    
+    <div style="margin-top:150px"><!-- Typing Animation -->
+      <span class="element"></span>
+    </div>
+    
   </section>
+  
+  <script>
+  $(function(){
+      $(".element").typed({
+        strings: [
+          "SCaster is completely open source !", 
+          "And it has a modular back end.",
+          "This means you can add your own Forecasting models as the project evolves.",
+          "Check out the Github repo for more info.",
+          "And if you like it, leave a &#9734; on my Github portfolio :)"
+          ],
+        typeSpeed: 20
+      });
+  });
+  </script>
 
 <div class="container"><!-- Restart the main container from application.html.erb -->

@@ -18,4 +18,5 @@
 //= require highcharts/highcharts-more
 //= require nprogress
 //= require nprogress-turbolinks
+//= require typed.js
 //= require_tree .
