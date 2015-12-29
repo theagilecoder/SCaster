@@ -1,3 +1,3 @@
 # Introduction
 
-This is a Mini Inventory Management SaaS
+SCaster is a Supply Chain Forecasting Suite
